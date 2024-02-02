@@ -95,10 +95,10 @@ async function main(){
 
 
 //RETO2 5.2:
-
-        // let sql = "SELECT students_id, mark FROM markss WHERE students_id BETWEEN 1 AND 20OR (mark > 8 AND date BETWEEN '2022-12-31' AND '2024-01-01');  "; 
-        // let [result] = await connection.query(sql);
-        // console.log("datos recogidos");
+        // let params = ["1", "20", "8", "'2022-12-31'", "'2024-01-01'"]
+        // let sql = "SELECT students_id, mark FROM markss WHERE students_id BETWEEN ? AND ? OR (mark > ? AND date BETWEEN ? AND ?)"; 
+        // let [result] = await connection.query(sql, params);
+        // console.log("Datos recogidos");
         // console.log(result);
 
         // let sql = "SELECT subjects_id, AVG (mark) AS media FROM markss WHERE date > '2023-01-31'GROUP BY subjects_id "; 
@@ -127,6 +127,14 @@ async function main(){
         // console.log("datos recogidos");
         // console.log(result);
 
+
+        // let sql = " " +
+        // " " +
+        // "  "+
+        // ""; 
+        // let [result] = await connection.query(sql);
+        // console.log("datos recogidos");
+        // console.log(result);
 
 
     }
