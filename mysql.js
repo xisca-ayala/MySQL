@@ -112,7 +112,8 @@ async function main(){
         // console.log(result);
 
 //RETO 3:
-        // let sql = "SELECT students.first_name, students.last_name, subjects.title FROM students " +
+
+        //  let sql = "SELECT students.first_name, students.last_name, subjects.title FROM students " +
         // " INNER JOIN markss ON students.student_id = markss.students_id " +
         // " INNER JOIN subjects ON markss.subjects_id = subjects.subject_id "; 
         // let [result] = await connection.query(sql);
@@ -128,10 +129,12 @@ async function main(){
         // console.log(result);
 
 
-        // let sql = " " +
-        // " " +
-        // "  "+
-        // ""; 
+        // let sql = "SELECT  subjects.title, teachers.first_name, teachers.second_name, COUNT(*) AS num_students FROM teachers " +
+        // "INNER JOIN subject_teacher ON teachers.teacher_id = subject_teacher.teacher_id " +
+        // "INNER JOIN subjects ON subject_teacher.subject_id = subjects.subject_id " +
+        // "INNER JOIN markss ON subjects.subject_id = markss.subjects_id " +
+        // "INNER JOIN students ON markss.students_id = students.student_id "+
+        // "GROUP BY subjects.title, teachers.first_name, teachers.second_name"; 
         // let [result] = await connection.query(sql);
         // console.log("datos recogidos");
         // console.log(result);
