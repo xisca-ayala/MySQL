@@ -10,7 +10,7 @@ router.get("/studied", subjectsCtrl.getStudiedStudents);
 
 router.get("/taught/:id", subjectsCtrl.getTaughtTeacher);
 
-// router.get("/taught", subjectsCtrl.getTaughtTeachers); 
+router.get("/taught", subjectsCtrl.getTaughtTeachers); 
 
 
 
