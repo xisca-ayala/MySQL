@@ -1,8 +1,10 @@
 const {Router} = require("express");
 const router = Router();
-const studentCtrl = require('../controller/students.controller'); 
+const studentCtrl = require("../controller/students.controller.js"); 
 
-router.get("/students?id=5", studentCtrl.getStudent);
+router.get("/students/:id", studentCtrl.getStudent);
+
+router.get("/students", studentCtrl.getStudents)
 
 router.post("/students", studentCtrl.createStudent);
 
