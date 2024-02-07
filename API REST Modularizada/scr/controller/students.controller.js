@@ -1,7 +1,5 @@
 const {pool} = require("../database");
 
-
-
 const getStudent = async (req, res)=> {
     try{
         let sql;
@@ -11,7 +9,6 @@ const getStudent = async (req, res)=> {
             sql = "SELECT * FROM students WHERE student_id = " + req.params.id;
         }
         let [result] = await pool.query(sql);
-
         res.send(result);
     }catch(err){
         console.log(err);
@@ -37,7 +34,7 @@ const createStudent = async (req, res) => {
         req.body.start_date +"')";
         let[result] = await pool.query(sql);
         res.send(result);
-    }catch{
+    }catch(err){
         console.error(err);
     }
 }
@@ -51,22 +48,22 @@ const updateStudent = async (req, res) => {
         let sql = "UPDATE students SET first_name = COALESCE(?, first_name), " +
         "last_name = COALESCE (?, last_name), " +
         "group_id = COALESCE(?, group_id), " +
-        "start_date = COALESCE(?, start_date), "; 
+        "start_date = COALESCE(?, start_date) "; 
         let[result] = await pool.query(sql, params);
         res.send(result);
-    }catch{
+    }catch (err){
         console.error(err);
     }
 }
 
 const deleteStudent = async (req, res) => {
     try{
-        let params = [req.body.fist_name, req.body.last_name];
-        let sql = "DELETE FROM students WHERE first_name = COALESCE(?, fist_name), " +
-                "AND last_name = COALESCE(?, last_name)"
+        let params = [req.body.first_name, req.body.last_name];
+        let sql = "DELETE FROM students WHERE first_name = COALESCE(?, first_name) " +
+                "AND last_name = COALESCE(?, last_name) " ;
         let[result] = await pool.query(sql, params);
         res.send(result);
-    }catch{
+    }catch(err){
         console.error(err);
     }
 }

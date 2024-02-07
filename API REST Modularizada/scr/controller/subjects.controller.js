@@ -9,14 +9,12 @@ const getMean = async (req, res)=> {
             sql = "SELECT AVG (mark) FROM markss WHERE subjects_id = " + req.params.id;
         }
     let [result] = await pool.query(sql);
-
     res.send(result);
     }
     catch(err){
         console.error(err);
     }
 }
-
 
 const getStudiedStudent = async (req, res)=> {
     try{
@@ -26,11 +24,10 @@ const getStudiedStudent = async (req, res)=> {
         }else{
             sql = "SELECT DISTINCT title FROM subjects "  +
             "INNER JOIN markss ON subjects.subject_id = markss.subjects_id " + 
-            "INNER JOIN students ON markss.student_id = students.student_id " +
+            "INNER JOIN students ON markss.students_id = students.student_id " +
             "WHERE students.student_id = " + req.params.id; 
         }
     let [result] = await pool.query(sql);
-
     res.send(result);
     }
     catch(err){
@@ -45,7 +42,6 @@ const getStudiedStudents = async (req, res)=> {
             "INNER JOIN students ON markss.students_id = students.student_id ";
         
         let [result] = await pool.query(sql);
-
         res.send(result);
     }catch(err){
         console.log(err);
