@@ -58,8 +58,8 @@ const updateStudent = async (req, res) => {
 
 const deleteStudent = async (req, res) => {
     try{
-        let params = [req.body.first_name, req.body.last_name];
-        let sql = "DELETE FROM students WHERE first_name = COALESCE(?, first_name) " +
+        let params = [req.body.student_id, req.body.first_name, req.body.last_name];
+        let sql = "DELETE FROM students WHERE student_id = COALESCE(?, student_id) AND first_name = COALESCE(?, first_name) " +
                 "AND last_name = COALESCE(?, last_name) " ;
         let[result] = await pool.query(sql, params);
         res.send(result);
